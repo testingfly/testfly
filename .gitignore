@@ -1,0 +1,5 @@
+target/
+reports/
+test-output/
+/config.properties
+/WFG-API-TEST.xml
