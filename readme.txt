@@ -50,17 +50,6 @@ Release Version: v2.3
 	6/12/2018 - Added support for UTC and TODAY calendar days computation.
 	
 
-
-Refer to this wiki link for formatted instructions -
-https://wfs-github.wellsfargo.com/GATEWAY/javaexcel_test_framework/wiki
-
-Issue Tracker:
-http://wfs-confluence.wellsfargo.com:8090/display/BAB/JavaExcel+Custom+Framework+Issue+Tracker
-
-Sample Project in Git - 
-http://lc-vwc71e-gw553.ent.wfb.bank.corp:8080/job/WFG_JAVA_EXCEL_TEST_POC/ws/reports/html/index.html
-
-
 KEY FEATURES:
 -------------
 1. Support for Standard validations - Key-Value Pair, NULL, Missing field validations, Response Time Validation, etc.
@@ -95,7 +84,7 @@ SPECIAL KEYWORDS valid for the TEST DATA SHEET:
 	{{RANDOM8N}} -> Generates random Number with length of 8 characters.
 	{{RANDOM12N}} -> Generates random Number with length of 12 characters.
 	
-	{{RANDOMURL}} -> Generates random URL in the format "https://test.xxxxx.wellsfargo.com"
+	{{RANDOMURL}} -> Generates random URL in the format "https://test.xxxxx.com"
 	
 	{{UTC0D}} -> Generates UTC (YYYY-MM-DDT00:00:00Z) Date format with current date and time.
 	{{UTC1D}} -> Generates UTC Date format with 1 business day from current date and time.
@@ -529,7 +518,7 @@ Example 2:
 	    "first_name": "SIVA",
 	    "last_name": "PINNAM",
 	    "middle_initial": "S",
-	    "email_address": "siva.pinnam@wellsfargo.com",
+	    "email_address": "siva.pinnam@xx.com",
 	    "user_contact_preferences": [
 	      {
 	        "contact_method": "Mobile",
@@ -575,7 +564,7 @@ VARIABLES IN THE RESOURCE PATH
 	
 	'#' in the TestSheet Header Row
 	Example #account_id will be added to the resource path listed below -
-	 /account-aggregation/v2/accounts/{account_id}
+	 /xx/{account_id}
 Here, the framework looks up the resource path and processes any variables defined within the {}.
 Tip: You can choose to override the resource path as needed per TC using the "Override Resource Path" column header.
 
@@ -584,8 +573,7 @@ ADDING TO RESOURCE PATH
 	Additional resource information can be included to the resource path using this attribute specified via a column - "Add to Path"
 	Example: You may have a base resource path to which you would like to append varying information based on the uses cases being 
 	tested such as the ones listed below:
-		# https://api-sit-wec.wellsfargo.com/account-boarding/v2/accounts/
-		# https://api-sit-wec.wellsfargo.com/account-boarding/v2/accounts/{account_id}/transactions
+
 	
 	
 DEFAULTING TO TEMPLATE'S CONTENT
@@ -653,7 +641,7 @@ key-value pairs capturing the account details. Here, the value after the '#' is 
         "account_type": "CHECKING",
         "account_id": "01MUCSYXEMMAL57HCG3PWIGDOK4YKIKSWTY3GKMD3YWQ2JJVMKGMOFAYMP5IGG54I7FDH3EH3EDTDZE",
         "is_command_account": false,
-        "description": "Wells Fargo Simple Business Checking",
+        "description": " Simple Business Checking",
         "display_name": "BUSINESS CHECKING ...0615",
         "status": "OPEN"
       },
@@ -709,8 +697,7 @@ key-value pairs capturing the account details. Here, the value after the '#' is 
 	      "error_code": "400-016",
 	      "description": "'location_id' does not match the pattern: ^[a-zA-Z0-9]{1,7}$.",
 	      "field_name": "location_id",
-	      "field_value": "WF00@3ER",
-	      "api_specification_url": "https://devstore.wellsfargo.com/store"
+	  
 	    }
 	  ]
 	}
@@ -754,7 +741,7 @@ key-value pairs capturing the account details. Here, the value after the '#' is 
 	      "first_name": "KIRAN",
 	      "last_name": "YELIMELI",
 	      "middle_initial": "H",
-	      "email_address": "kiran.yelimeliwellsfargo.com",
+	      "email_address": "kiran.1@xxcom",
 	      "user_contact_preferences": {
 	        "contact_method": "Mobile",
 	        "contact_number_type": "US/Canada",
@@ -800,7 +787,7 @@ SETUP INSTRUCTION:
 5. Add the Test Suite details in the "Test" tab and add steps as needed including the DataSource name.
 6. Add the TCs in the test cases tab. This name should be as defined in the DataSource column in Step 4.
 7. Download dependencies - navigate to the project folder in the cmd prompt and run "mvn install exec:java -s override-settings.xml"
-8. To run the test, goto src/main/test -> com.wellsfargo.wfgAPI.core -> TestRunner.java and right click on the TestRunner.java file and select "Java Application".
+8. To run the test, goto src/main/test -> TestRunner.java and right click on the TestRunner.java file and select "Java Application".
    Subsequently, you can just click on the "Play" icon to run the test.
 9. Update the environment and tagName as needed in the config.properties file and rerun.
 
